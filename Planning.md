@@ -10,9 +10,13 @@
 ## Setup Steps
 [X] Setup project architecture
 [X] Initialize Webpack
+[] Create initial page views
+[] Show Project
+[] implement project creation
+    
 [] implement initial to do list
     [] Item Creation
     [] Item Completion
-[] implement project creation
+
 [] implement project associate
 [] Implement

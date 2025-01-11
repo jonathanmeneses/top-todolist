@@ -2,14 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todoodle</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/bear.png" />
 </head>
 
 <body>
-    <h1>Hello World!</h1>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="sidebar-title">Todoodle</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" id="home-button">Home</button>
+                <button class="nav-item" id="projects-button">Projects</button>
+            </nav>
+            <footer class="sidebar-footer">
+                <p>Made with ❤️ by</p>
+                <a href="https://github.com/jonathanmeneses" class="github-link">
+                    @jonathanmeneses
+                    <img src="./assets/github-mark.svg" alt="GitHub logo" class="github-logo" />
+                </a>
+            </footer>
+        </aside>
 
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hamburger Icon for smaller screens -->
+            <button class="menu-toggle" id="menu-toggle">
+                <!-- Simple "hamburger" icon with 3 bars -->
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <header class="main-header">
+                <h2 class="main-title">Your Tasks</h2>
+                <div class="action-buttons">
+                    <button class="btn new-task-btn">+ New Task</button>
+                    <button class="btn new-project-btn">+ New Project</button>
+                </div>
+            </header>
+
+            <!-- Task and Project Views -->
+            <section id="tasks-view" class="tasks-section">
+                <!-- Sample Task -->
+                <div class="task-card low-priority">
+                    <div class="task-header">
+                        <div class="task-title-group">
+                            <input type="checkbox" class="task-complete-toggle" />
+                            <h3 class="task-title">Sample Task</h3>
+                        </div>
+                        <span class="task-due-date">12/25/2025</span>
+                    </div>
+                    <p class="task-project">Project: Default</p>
+                    <p class="task-description">
+                        Description of the task goes here. This is a placeholder for user-created tasks.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Example JavaScript (could be in a separate file) -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+
+        // Toggle sidebar open/close in mobile view
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+
+        // Mark tasks as complete
+        document.addEventListener("change", (e) => {
+            if (e.target.matches(".task-complete-toggle")) {
+                const taskCard = e.target.closest(".task-card");
+                if (taskCard) {
+                    taskCard.classList.toggle("completed");
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
